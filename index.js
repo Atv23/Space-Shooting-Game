@@ -4,9 +4,20 @@ import BulletController from "./bulletcontroller.js";
 
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+const canvasContainer = document.getElementById("canvas-container");
 
-canvas.width = 1200;
-canvas.height = 600;
+// canvas.width = 1200;
+// canvas.height = 600;
+function setCanvasDimensions() {
+    canvas.width = canvasContainer.clientWidth;
+    canvas.height = canvasContainer.clientHeight;
+  }
+  
+  // Initial setup
+  setCanvasDimensions();
+  
+  // Update canvas dimensions when the window is resized
+window.addEventListener("resize", setCanvasDimensions);
 
 const background = new Image();
 background.src = "images/space.png";
